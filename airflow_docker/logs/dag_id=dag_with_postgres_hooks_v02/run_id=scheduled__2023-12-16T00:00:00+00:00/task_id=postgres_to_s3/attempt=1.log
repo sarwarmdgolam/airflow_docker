@@ -1,0 +1,42 @@
+[2023-12-22T14:53:52.201+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hooks_v02.postgres_to_s3 scheduled__2023-12-16T00:00:00+00:00 [queued]>
+[2023-12-22T14:53:52.292+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hooks_v02.postgres_to_s3 scheduled__2023-12-16T00:00:00+00:00 [queued]>
+[2023-12-22T14:53:52.295+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2023-12-22T14:53:52.441+0000] {taskinstance.py:2192} INFO - Executing <Task(PythonOperator): postgres_to_s3> on 2023-12-16 00:00:00+00:00
+[2023-12-22T14:53:52.458+0000] {standard_task_runner.py:60} INFO - Started process 58481 to run task
+[2023-12-22T14:53:52.499+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hooks_v02', 'postgres_to_s3', 'scheduled__2023-12-16T00:00:00+00:00', '--job-id', '247', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgres_hooks.py', '--cfg-path', '/tmp/tmpncvij2h5']
+[2023-12-22T14:53:52.508+0000] {standard_task_runner.py:88} INFO - Job 247: Subtask postgres_to_s3
+[2023-12-22T14:53:52.796+0000] {task_command.py:423} INFO - Running <TaskInstance: dag_with_postgres_hooks_v02.postgres_to_s3 scheduled__2023-12-16T00:00:00+00:00 [running]> on host dd88aaafc1d9
+[2023-12-22T14:53:53.473+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='sarwar' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hooks_v02' AIRFLOW_CTX_TASK_ID='postgres_to_s3' AIRFLOW_CTX_EXECUTION_DATE='2023-12-16T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-12-16T00:00:00+00:00'
+[2023-12-22T14:53:53.555+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'next_ds_nodash' from the template is deprecated and will be removed in a future version. Please use '{{ data_interval_end | ds_nodash }}' instead.
+[2023-12-22T14:53:53.663+0000] {base.py:83} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-12-22T14:53:53.720+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dag_with_postgres_hooks.py", line 19, in postgres_to_s3
+    cursor.execute("select * from public.orders where date >= %s and date <= %s", ds_nodash, next_ds_nodash)
+TypeError: function takes at most 2 arguments (3 given)
+[2023-12-22T14:53:53.761+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=dag_with_postgres_hooks_v02, task_id=postgres_to_s3, execution_date=20231216T000000, start_date=20231222T145352, end_date=20231222T145353
+[2023-12-22T14:53:53.860+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 247 for task postgres_to_s3 (function takes at most 2 arguments (3 given); 58481)
+[2023-12-22T14:53:53.997+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2023-12-22T14:53:54.041+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-12-22T15:03:41.781+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hooks_v02.postgres_to_s3 scheduled__2023-12-16T00:00:00+00:00 [queued]>
+[2023-12-22T15:03:41.902+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hooks_v02.postgres_to_s3 scheduled__2023-12-16T00:00:00+00:00 [queued]>
+[2023-12-22T15:03:41.918+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2023-12-22T15:03:42.105+0000] {taskinstance.py:2192} INFO - Executing <Task(PythonOperator): postgres_to_s3> on 2023-12-16 00:00:00+00:00
+[2023-12-22T15:03:42.153+0000] {standard_task_runner.py:60} INFO - Started process 59435 to run task
+[2023-12-22T15:03:42.187+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hooks_v02', 'postgres_to_s3', 'scheduled__2023-12-16T00:00:00+00:00', '--job-id', '268', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgres_hooks.py', '--cfg-path', '/tmp/tmpvwe2ke2h']
+[2023-12-22T15:03:42.210+0000] {standard_task_runner.py:88} INFO - Job 268: Subtask postgres_to_s3
+[2023-12-22T15:03:42.764+0000] {task_command.py:423} INFO - Running <TaskInstance: dag_with_postgres_hooks_v02.postgres_to_s3 scheduled__2023-12-16T00:00:00+00:00 [running]> on host dd88aaafc1d9
+[2023-12-22T15:03:43.494+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='sarwar' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hooks_v02' AIRFLOW_CTX_TASK_ID='postgres_to_s3' AIRFLOW_CTX_EXECUTION_DATE='2023-12-16T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-12-16T00:00:00+00:00'
+[2023-12-22T15:03:43.529+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'next_ds_nodash' from the template is deprecated and will be removed in a future version. Please use '{{ data_interval_end | ds_nodash }}' instead.
+[2023-12-22T15:03:43.577+0000] {base.py:83} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-12-22T15:03:43.617+0000] {dag_with_postgres_hooks.py:26} INFO - Saved orders in file: dags/get_orders_20231216.txt
+[2023-12-22T15:03:43.625+0000] {python.py:201} INFO - Done. Returned value was: None
+[2023-12-22T15:03:43.671+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_hooks_v02, task_id=postgres_to_s3, execution_date=20231216T000000, start_date=20231222T150341, end_date=20231222T150343
+[2023-12-22T15:03:43.767+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2023-12-22T15:03:43.816+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,17 @@
+[2023-12-19T13:53:44.808+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: example_bash_operator.run_after_loop manual__2023-12-19T13:52:43+00:00 [queued]>
+[2023-12-19T13:53:45.160+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: example_bash_operator.run_after_loop manual__2023-12-19T13:52:43+00:00 [queued]>
+[2023-12-19T13:53:45.172+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2023-12-19T13:53:45.277+0000] {taskinstance.py:2192} INFO - Executing <Task(BashOperator): run_after_loop> on 2023-12-19 13:52:43+00:00
+[2023-12-19T13:53:45.312+0000] {standard_task_runner.py:60} INFO - Started process 2194 to run task
+[2023-12-19T13:53:45.362+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'example_bash_operator', 'run_after_loop', 'manual__2023-12-19T13:52:43+00:00', '--job-id', '16', '--raw', '--subdir', '/home/***/.local/lib/python3.8/site-packages/***/example_dags/example_bash_operator.py', '--cfg-path', '/tmp/tmp6sk5_wlh']
+[2023-12-19T13:53:45.376+0000] {standard_task_runner.py:88} INFO - Job 16: Subtask run_after_loop
+[2023-12-19T13:53:45.565+0000] {task_command.py:423} INFO - Running <TaskInstance: example_bash_operator.run_after_loop manual__2023-12-19T13:52:43+00:00 [running]> on host 66701e603896
+[2023-12-19T13:53:45.886+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='example_bash_operator' AIRFLOW_CTX_TASK_ID='run_after_loop' AIRFLOW_CTX_EXECUTION_DATE='2023-12-19T13:52:43+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-12-19T13:52:43+00:00'
+[2023-12-19T13:53:45.892+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2023-12-19T13:53:45.895+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'echo 1']
+[2023-12-19T13:53:45.922+0000] {subprocess.py:86} INFO - Output:
+[2023-12-19T13:53:45.928+0000] {subprocess.py:93} INFO - 1
+[2023-12-19T13:53:45.933+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-12-19T13:53:46.004+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=example_bash_operator, task_id=run_after_loop, execution_date=20231219T135243, start_date=20231219T135344, end_date=20231219T135346
+[2023-12-19T13:53:46.070+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2023-12-19T13:53:46.163+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

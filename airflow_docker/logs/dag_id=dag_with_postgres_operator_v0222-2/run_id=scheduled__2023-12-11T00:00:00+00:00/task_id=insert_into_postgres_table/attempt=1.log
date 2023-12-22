@@ -1,0 +1,38 @@
+[2023-12-22T04:12:13.279+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v0222-2.insert_into_postgres_table scheduled__2023-12-11T00:00:00+00:00 [queued]>
+[2023-12-22T04:12:13.536+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v0222-2.insert_into_postgres_table scheduled__2023-12-11T00:00:00+00:00 [queued]>
+[2023-12-22T04:12:13.538+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2023-12-22T04:12:14.181+0000] {taskinstance.py:2192} INFO - Executing <Task(PostgresOperator): insert_into_postgres_table> on 2023-12-11 00:00:00+00:00
+[2023-12-22T04:12:14.565+0000] {standard_task_runner.py:60} INFO - Started process 10750 to run task
+[2023-12-22T04:12:14.784+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_operator_v0222-2', 'insert_into_postgres_table', 'scheduled__2023-12-11T00:00:00+00:00', '--job-id', '175', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgres_operator.py', '--cfg-path', '/tmp/tmp7iaouq4z']
+[2023-12-22T04:12:14.933+0000] {standard_task_runner.py:88} INFO - Job 175: Subtask insert_into_postgres_table
+[2023-12-22T04:12:16.869+0000] {task_command.py:423} INFO - Running <TaskInstance: dag_with_postgres_operator_v0222-2.insert_into_postgres_table scheduled__2023-12-11T00:00:00+00:00 [running]> on host dd88aaafc1d9
+[2023-12-22T04:12:20.404+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='sarwar' AIRFLOW_CTX_DAG_ID='dag_with_postgres_operator_v0222-2' AIRFLOW_CTX_TASK_ID='insert_into_postgres_table' AIRFLOW_CTX_EXECUTION_DATE='2023-12-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-12-11T00:00:00+00:00'
+[2023-12-22T04:12:20.501+0000] {sql.py:276} INFO - Executing: 
+            insert into dag_runs (dt, dag_id) values(2023-12-22, dag_with_postgres_operator_v0222-2 )
+        
+[2023-12-22T04:12:20.803+0000] {base.py:83} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-12-22T04:12:21.083+0000] {base.py:83} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-12-22T04:12:21.182+0000] {sql.py:432} INFO - Running statement: 
+            insert into dag_runs (dt, dag_id) values(2023-12-22, dag_with_postgres_operator_v0222-2 )
+        , parameters: None
+[2023-12-22T04:12:21.196+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 392, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 437, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedColumn: column "dag_with_postgres_operator_v0222" does not exist
+LINE 2: ...ert into dag_runs (dt, dag_id) values(2023-12-22, dag_with_p...
+                                                             ^
+
+[2023-12-22T04:12:21.579+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=dag_with_postgres_operator_v0222-2, task_id=insert_into_postgres_table, execution_date=20231211T000000, start_date=20231222T041213, end_date=20231222T041221
+[2023-12-22T04:12:22.641+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 175 for task insert_into_postgres_table (column "dag_with_postgres_operator_v0222" does not exist
+LINE 2: ...ert into dag_runs (dt, dag_id) values(2023-12-22, dag_with_p...
+                                                             ^
+; 10750)
+[2023-12-22T04:12:22.786+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2023-12-22T04:12:22.998+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

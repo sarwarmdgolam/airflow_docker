@@ -1,0 +1,32 @@
+[2023-12-22T13:29:30.729+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_minio_s3_v02.sensor_mino_s3 manual__2023-12-22T13:29:26.670788+00:00 [queued]>
+[2023-12-22T13:29:30.821+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_minio_s3_v02.sensor_mino_s3 manual__2023-12-22T13:29:26.670788+00:00 [queued]>
+[2023-12-22T13:29:30.908+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2023-12-22T13:29:31.168+0000] {taskinstance.py:2192} INFO - Executing <Task(S3KeySensor): sensor_mino_s3> on 2023-12-22 13:29:26.670788+00:00
+[2023-12-22T13:29:31.244+0000] {standard_task_runner.py:60} INFO - Started process 50922 to run task
+[2023-12-22T13:29:31.294+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dag_with_minio_s3_v02', 'sensor_mino_s3', 'manual__2023-12-22T13:29:26.670788+00:00', '--job-id', '225', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_minio_s3.py', '--cfg-path', '/tmp/tmptc33mwnd']
+[2023-12-22T13:29:31.328+0000] {standard_task_runner.py:88} INFO - Job 225: Subtask sensor_mino_s3
+[2023-12-22T13:29:31.615+0000] {task_command.py:423} INFO - Running <TaskInstance: dag_with_minio_s3_v02.sensor_mino_s3 manual__2023-12-22T13:29:26.670788+00:00 [running]> on host dd88aaafc1d9
+[2023-12-22T13:29:31.857+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='sarwar' AIRFLOW_CTX_DAG_ID='dag_with_minio_s3_v02' AIRFLOW_CTX_TASK_ID='sensor_mino_s3' AIRFLOW_CTX_EXECUTION_DATE='2023-12-22T13:29:26.670788+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-12-22T13:29:26.670788+00:00'
+[2023-12-22T13:29:31.865+0000] {s3.py:106} INFO - Poking for key : s3://***/data.csv
+[2023-12-22T13:29:31.890+0000] {base.py:83} INFO - Using connection ID 'minio_conn' for task execution.
+[2023-12-22T13:29:31.894+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from login and password.
+[2023-12-22T13:29:31.920+0000] {logging_mixin.py:188} WARNING - <string>:9 AirflowProviderDeprecationWarning: extra['host'] is deprecated and will be removed in a future release. Please set extra['endpoint_url'] instead
+[2023-12-22T13:29:38.408+0000] {s3.py:106} INFO - Poking for key : s3://***/data.csv
+[2023-12-22T13:29:43.448+0000] {s3.py:106} INFO - Poking for key : s3://***/data.csv
+[2023-12-22T13:29:48.481+0000] {s3.py:106} INFO - Poking for key : s3://***/data.csv
+[2023-12-22T13:29:53.504+0000] {s3.py:106} INFO - Poking for key : s3://***/data.csv
+[2023-12-22T13:29:58.530+0000] {s3.py:106} INFO - Poking for key : s3://***/data.csv
+[2023-12-22T13:30:03.532+0000] {s3.py:106} INFO - Poking for key : s3://***/data.csv
+[2023-12-22T13:30:03.558+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/amazon/aws/sensors/s3.py", line 144, in execute
+    super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/sensors/base.py", line 280, in execute
+    raise AirflowSensorTimeout(message)
+airflow.exceptions.AirflowSensorTimeout: Sensor has timed out; run duration of 31.729926300002262 seconds exceeds the specified timeout of 30.0.
+[2023-12-22T13:30:03.652+0000] {taskinstance.py:1138} INFO - Immediate failure requested. Marking task as FAILED. dag_id=dag_with_minio_s3_v02, task_id=sensor_mino_s3, execution_date=20231222T132926, start_date=20231222T132930, end_date=20231222T133003
+[2023-12-22T13:30:03.691+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 225 for task sensor_mino_s3 (Sensor has timed out; run duration of 31.729926300002262 seconds exceeds the specified timeout of 30.0.; 50922)
+[2023-12-22T13:30:03.767+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2023-12-22T13:30:03.810+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

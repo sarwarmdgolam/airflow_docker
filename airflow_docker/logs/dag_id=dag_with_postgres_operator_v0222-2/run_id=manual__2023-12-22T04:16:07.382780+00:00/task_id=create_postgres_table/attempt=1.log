@@ -1,0 +1,26 @@
+[2023-12-22T04:16:09.181+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v0222-2.create_postgres_table manual__2023-12-22T04:16:07.382780+00:00 [queued]>
+[2023-12-22T04:16:09.281+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v0222-2.create_postgres_table manual__2023-12-22T04:16:07.382780+00:00 [queued]>
+[2023-12-22T04:16:09.292+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2023-12-22T04:16:09.380+0000] {taskinstance.py:2192} INFO - Executing <Task(PostgresOperator): create_postgres_table> on 2023-12-22 04:16:07.382780+00:00
+[2023-12-22T04:16:09.403+0000] {standard_task_runner.py:60} INFO - Started process 11086 to run task
+[2023-12-22T04:16:09.465+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_operator_v0222-2', 'create_postgres_table', 'manual__2023-12-22T04:16:07.382780+00:00', '--job-id', '193', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgres_operator.py', '--cfg-path', '/tmp/tmp7hn906ug']
+[2023-12-22T04:16:09.479+0000] {standard_task_runner.py:88} INFO - Job 193: Subtask create_postgres_table
+[2023-12-22T04:16:09.984+0000] {task_command.py:423} INFO - Running <TaskInstance: dag_with_postgres_operator_v0222-2.create_postgres_table manual__2023-12-22T04:16:07.382780+00:00 [running]> on host dd88aaafc1d9
+[2023-12-22T04:16:10.441+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='sarwar' AIRFLOW_CTX_DAG_ID='dag_with_postgres_operator_v0222-2' AIRFLOW_CTX_TASK_ID='create_postgres_table' AIRFLOW_CTX_EXECUTION_DATE='2023-12-22T04:16:07.382780+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-12-22T04:16:07.382780+00:00'
+[2023-12-22T04:16:10.443+0000] {sql.py:276} INFO - Executing: 
+        create table if not exists dag_runs (
+        dt date,
+        dag_id character varying
+        )
+        
+[2023-12-22T04:16:10.466+0000] {base.py:83} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-12-22T04:16:10.485+0000] {base.py:83} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-12-22T04:16:10.508+0000] {sql.py:432} INFO - Running statement: 
+        create table if not exists dag_runs (
+        dt date,
+        dag_id character varying
+        )
+        , parameters: None
+[2023-12-22T04:16:10.531+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_operator_v0222-2, task_id=create_postgres_table, execution_date=20231222T041607, start_date=20231222T041609, end_date=20231222T041610
+[2023-12-22T04:16:10.575+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2023-12-22T04:16:10.614+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,17 @@
+[2023-12-22T13:28:26.683+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_minio_s3_v02.sensor_mino_s3 scheduled__2023-12-10T00:00:00+00:00 [queued]>
+[2023-12-22T13:28:26.877+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_minio_s3_v02.sensor_mino_s3 scheduled__2023-12-10T00:00:00+00:00 [queued]>
+[2023-12-22T13:28:26.892+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2023-12-22T13:28:27.303+0000] {taskinstance.py:2192} INFO - Executing <Task(S3KeySensor): sensor_mino_s3> on 2023-12-10 00:00:00+00:00
+[2023-12-22T13:28:27.317+0000] {standard_task_runner.py:60} INFO - Started process 50819 to run task
+[2023-12-22T13:28:27.365+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dag_with_minio_s3_v02', 'sensor_mino_s3', 'scheduled__2023-12-10T00:00:00+00:00', '--job-id', '212', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_minio_s3.py', '--cfg-path', '/tmp/tmpog0clusi']
+[2023-12-22T13:28:27.396+0000] {standard_task_runner.py:88} INFO - Job 212: Subtask sensor_mino_s3
+[2023-12-22T13:28:28.151+0000] {task_command.py:423} INFO - Running <TaskInstance: dag_with_minio_s3_v02.sensor_mino_s3 scheduled__2023-12-10T00:00:00+00:00 [running]> on host dd88aaafc1d9
+[2023-12-22T13:28:29.871+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='sarwar' AIRFLOW_CTX_DAG_ID='dag_with_minio_s3_v02' AIRFLOW_CTX_TASK_ID='sensor_mino_s3' AIRFLOW_CTX_EXECUTION_DATE='2023-12-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-12-10T00:00:00+00:00'
+[2023-12-22T13:28:29.884+0000] {s3.py:106} INFO - Poking for key : s3://***/data.csv
+[2023-12-22T13:28:30.092+0000] {base.py:83} INFO - Using connection ID 'minio_conn' for task execution.
+[2023-12-22T13:28:30.100+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from login and password.
+[2023-12-22T13:28:30.261+0000] {logging_mixin.py:188} WARNING - <string>:9 AirflowProviderDeprecationWarning: extra['host'] is deprecated and will be removed in a future release. Please set extra['endpoint_url'] instead
+[2023-12-22T13:28:46.626+0000] {base.py:293} INFO - Success criteria met. Exiting.
+[2023-12-22T13:28:46.804+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=dag_with_minio_s3_v02, task_id=sensor_mino_s3, execution_date=20231210T000000, start_date=20231222T132826, end_date=20231222T132846
+[2023-12-22T13:28:47.374+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2023-12-22T13:28:47.657+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

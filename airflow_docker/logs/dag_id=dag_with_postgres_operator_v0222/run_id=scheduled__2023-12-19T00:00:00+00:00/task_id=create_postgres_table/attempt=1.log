@@ -1,0 +1,46 @@
+[2023-12-22T04:09:03.137+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v0222.create_postgres_table scheduled__2023-12-19T00:00:00+00:00 [queued]>
+[2023-12-22T04:09:03.270+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v0222.create_postgres_table scheduled__2023-12-19T00:00:00+00:00 [queued]>
+[2023-12-22T04:09:03.276+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2023-12-22T04:09:03.374+0000] {taskinstance.py:2192} INFO - Executing <Task(PostgresOperator): create_postgres_table> on 2023-12-19 00:00:00+00:00
+[2023-12-22T04:09:03.431+0000] {standard_task_runner.py:60} INFO - Started process 10487 to run task
+[2023-12-22T04:09:03.476+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_operator_v0222', 'create_postgres_table', 'scheduled__2023-12-19T00:00:00+00:00', '--job-id', '162', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgres_operator.py', '--cfg-path', '/tmp/tmp654m15rh']
+[2023-12-22T04:09:03.501+0000] {standard_task_runner.py:88} INFO - Job 162: Subtask create_postgres_table
+[2023-12-22T04:09:03.890+0000] {task_command.py:423} INFO - Running <TaskInstance: dag_with_postgres_operator_v0222.create_postgres_table scheduled__2023-12-19T00:00:00+00:00 [running]> on host dd88aaafc1d9
+[2023-12-22T04:09:04.512+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='sarwar' AIRFLOW_CTX_DAG_ID='dag_with_postgres_operator_v0222' AIRFLOW_CTX_TASK_ID='create_postgres_table' AIRFLOW_CTX_EXECUTION_DATE='2023-12-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-12-19T00:00:00+00:00'
+[2023-12-22T04:09:04.516+0000] {sql.py:276} INFO - Executing: 
+        create table if not exists dag_runs (
+        dt datetime,
+        dag_id varchar,
+        primary key(dt, dag_id)
+        )
+        
+[2023-12-22T04:09:04.554+0000] {base.py:83} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-12-22T04:09:04.623+0000] {base.py:83} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-12-22T04:09:04.655+0000] {sql.py:432} INFO - Running statement: 
+        create table if not exists dag_runs (
+        dt datetime,
+        dag_id varchar,
+        primary key(dt, dag_id)
+        )
+        , parameters: None
+[2023-12-22T04:09:04.661+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 392, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 437, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedObject: type "datetime" does not exist
+LINE 3:         dt datetime,
+                   ^
+
+[2023-12-22T04:09:04.717+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=dag_with_postgres_operator_v0222, task_id=create_postgres_table, execution_date=20231219T000000, start_date=20231222T040903, end_date=20231222T040904
+[2023-12-22T04:09:04.823+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 162 for task create_postgres_table (type "datetime" does not exist
+LINE 3:         dt datetime,
+                   ^
+; 10487)
+[2023-12-22T04:09:04.906+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2023-12-22T04:09:05.092+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
